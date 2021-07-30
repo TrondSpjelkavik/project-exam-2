@@ -1,0 +1,22 @@
+<template lang="">
+  <h2 class="sub-headline">
+    {{ headline }}
+  </h2>
+</template>
+<script>
+export default {
+  name: "SubHeadline",
+  props: {
+    headline: String,
+    required: true
+  }
+};
+</script>
+<style lang="scss" scoped>
+.sub-headline {
+  text-align: center;
+  font-size: 33px;
+  padding: 2rem 0;
+  font-family: var(--font-headline);
+}
+</style>
