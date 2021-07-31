@@ -15,7 +15,7 @@
             <NuxtLink to="/">Home</NuxtLink>
           </li>
           <li @click="closeNav">
-            <NuxtLink to="/hotels">Hotels</NuxtLink>
+            <NuxtLink to="/accommodations">Housing</NuxtLink>
           </li>
           <li @click="closeNav">
             <NuxtLink to="/contact">Contact</NuxtLink>

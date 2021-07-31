@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SubHeadline headline="Featured Hotels" />
+    <SubHeadline headline="Featured Housing" />
     <div>
       <Hotel />
     </div>
@@ -11,7 +11,7 @@ import Hotel from "./Hotel.vue";
 import SubHeadline from "../../layout/SubHeadline.vue";
 
 export default {
-  name: "Hotels",
+  name: "Accommodations",
   components: {
     Hotel,
     SubHeadline

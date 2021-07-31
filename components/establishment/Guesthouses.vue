@@ -2,7 +2,7 @@
   <div>
     <div class="hotels-container">
       <div :key="hotel.id" v-for="hotel in hotels" @click="hotelPage(hotel)">
-        <div class="card" v-if="hotel.hotel">
+        <div class="card" v-if="hotel.guesthouse">
           <div></div>
           <nuxt-img :src="hotel.img_url" class="img-hotel" />
           <h2 class="hotel-headline">{{ hotel.name }}</h2>

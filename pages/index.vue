@@ -7,7 +7,7 @@
       </video>
     </div>
     <Explore />
-    <Hotels />
+    <Accommodations />
     <Questions />
   </div>
 </template>
@@ -15,7 +15,7 @@
 <script>
 import Header from "../components/home/Header.vue";
 import Explore from "../components/home/explore/Explore.vue";
-import Hotels from "../components/home/hotels/Hotels.vue";
+import Accommodations from "../components/home/hotels/Accommodations.vue";
 import Questions from "../components/home/questions/Questions.vue";
 import Nav from "../components/layout/Nav.vue";
 
@@ -23,7 +23,7 @@ export default {
   components: {
     Header,
     Explore,
-    Hotels,
+    Accommodations,
     Questions,
     Nav
   },
