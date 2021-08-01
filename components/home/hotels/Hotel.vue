@@ -1,6 +1,6 @@
 <template>
   <div class="feature-box">
-    <div :key="hotel.id" v-for="hotel in hotels">
+    <div :key="hotel.id" v-for="hotel in hotels" @click="hotelPage(hotel)">
       <div class="card" v-if="hotel.isFeatured">
         <div></div>
         <nuxt-img :src="hotel.img_url" class="img-hotel" />
@@ -17,6 +17,7 @@
 import Stars from "../../establishment/Stars.vue";
 export default {
   name: "Hotel",
+  props: ["hotelPage"],
   components: {
     Stars
   },

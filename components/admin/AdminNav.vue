@@ -4,7 +4,7 @@
       <h1 class="admin-headline">Admin Panel</h1>
       <div>
         <ul class="admin-buttons">
-          <div class="admin_nav-icon" @click="createHotel">
+          <div @click="createHotel" class="admin_nav-icon">
             <v-icon class="admin-icon" size="36">
               {{ icons.mdiHomeCity }}
             </v-icon>

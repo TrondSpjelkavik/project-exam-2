@@ -7,7 +7,7 @@
       </video>
     </div>
     <Explore />
-    <Accommodations />
+    <Accommodations :hotelPage="hotelPage" />
     <Questions />
   </div>
 </template>

@@ -1,18 +1,37 @@
 <template>
-  <div class="">
+  <div class="container-hoo">
     <SubHeadline headline="Enquiries" />
     <div class="create-hotel-container">
-      <div
-        class="message-container"
-        v-for="enquirie in enquiries"
-        :key="enquirie.id"
-        @click="enquiriePage(enquirie)"
-      >
-        <div class="box-foo">
-          <p>{{ enquirie.name }}</p>
-          <p v-if="!enquirie.hasRead">New</p>
-          <p v-if="enquirie.hasRead">Old</p>
-          <p>{{ formatDate(enquirie.created_at) }}</p>
+      <div>
+        <h2>New enquirires</h2>
+        <div
+          class="message-container"
+          v-for="(enquirie, index) in enquiriesRead"
+          :key="index"
+          @click="enquiriePage(enquirie)"
+        >
+          <div class="box-foo">
+            <p class="message-headline">{{ enquirie.name }}</p>
+            <p v-if="!enquirie.hasRead" class="new">New</p>
+
+            <p class="message-date">{{ formatDate(enquirie.created_at) }}</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2>Old enquirires</h2>
+        <div
+          class="message-container"
+          v-for="enquirie in enquiriesNotRead"
+          :key="enquirie.id"
+          @click="enquiriePage(enquirie)"
+        >
+          <div class="box-foo">
+            <p class="message-headline">{{ enquirie.name }}</p>
+
+            <p v-if="enquirie.hasRead" class="old">Old</p>
+            <p class="message-date">{{ formatDate(enquirie.created_at) }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -32,6 +51,14 @@ export default {
       return moment(date).format("MMMM Do YYYY ");
     }
   },
+  computed: {
+    enquiriesRead() {
+      return this.enquiries.filter(read => read.hasRead === false);
+    },
+    enquiriesNotRead() {
+      return this.enquiries.filter(read => read.hasRead === true);
+    }
+  },
   created() {
     const array = this.enquiries;
     array.forEach(item => {
@@ -45,11 +72,25 @@ export default {
 <style lang="scss" scoped>
 .box-foo {
   display: flex;
-  width: 500px;
+  width: 400px;
   justify-content: space-between;
 }
 
-.active {
-  color: blue;
+.enquirie-container {
+  display: flex;
+  width: 1200px;
+  justify-content: space-around;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.old {
+  color: var(--brand-red);
+  font-weight: 700;
+}
+
+.new {
+  color: green;
+  font-weight: 700;
 }
 </style>

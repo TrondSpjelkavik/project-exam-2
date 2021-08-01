@@ -42,25 +42,23 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .create-hotel-container {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+
   justify-content: space-around;
   background: #f2f2f2;
+  margin: 0 auto;
 }
 
 .message-container {
   background: white;
   width: 400px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: fit-content;
-
-  border-radius: 20px;
   margin: 1rem;
   position: relative;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
