@@ -6,7 +6,7 @@
       :messagePage="messagePage"
       v-if="comp === 'Messages'"
     />
-    <CreateHotel2 v-if="comp === 'CreateHotel'" />
+    <CreateHotel v-if="comp === 'CreateHotel'" />
     <Enquiries
       :enquiries="enquiries"
       :enquiriePage="enquiriePage"
@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-import CreateHotel2 from "../components/admin/CreateHotel2.vue";
+import CreateHotel from "../components/admin/CreateHotel.vue";
 import Messages from "../components/admin/Messages.vue";
 import Enquiries from "../components/admin/Enquiries.vue";
 import UpdateHotels from "../components/admin/UpdateHotels.vue";
@@ -28,7 +28,7 @@ import AdminNav from "../components/admin/AdminNav.vue";
 
 export default {
   components: {
-    CreateHotel2,
+    CreateHotel,
     Messages,
     Enquiries,
     UpdateHotels,

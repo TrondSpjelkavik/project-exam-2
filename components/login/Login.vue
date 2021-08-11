@@ -49,7 +49,7 @@ import { validationMixin } from "vuelidate";
 import { required, minLength, email } from "vuelidate/lib/validators";
 
 export default {
-  name: "Contact",
+  name: "Login",
   mixins: [validationMixin],
   validations: {
     form: {
@@ -101,7 +101,6 @@ export default {
           password: this.form.password
         });
 
-        console.log(user);
         if (user !== null) {
           this.error = "";
           this.$nuxt.$router.push("/admin");

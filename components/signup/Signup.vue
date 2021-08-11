@@ -50,7 +50,7 @@ import { validationMixin } from "vuelidate";
 import { required, minLength, email } from "vuelidate/lib/validators";
 
 export default {
-  name: "Contact",
+  name: "Signup",
   mixins: [validationMixin],
   validations: {
     form: {
@@ -111,13 +111,12 @@ export default {
           password: this.form.password
         });
 
-        console.log(newUser);
         if (newUser !== null) {
           this.error = "";
           this.$nuxt.$router.push("/login");
         }
       } catch (error) {
-        this.form.error = "Please provide a valid email";
+        console.log("Error: ", error);
       } finally {
         this.form.loading = false;
         if (!this.error) {

@@ -1,238 +1,274 @@
 <template>
   <div class="create-hotel-container">
-    <form ref="form" @submit="createPost">
-      <h2>Create a new hotel</h2>
-      <div class="input-container">
-        <div class="input-container__item">
-          <label for="name">Name</label>
-          <input
-            v-model="form.name"
-            name="name"
-            type="text"
-            placeholder="name"
-          />
-        </div>
-        <div class="input-container__item">
-          <label for="featured">Featured?</label>
-          <input v-model="form.isFeatured" name="featured" type="checkbox" />
-        </div>
-      </div>
-      <div class="input-container">
-        <div class="input-container__item">
-          <label for="address">Address</label>
-          <input
-            v-model="form.address"
-            name="address"
-            type="text"
-            placeholder="address"
-          />
-        </div>
-      </div>
-      <div class="input-container">
-        <div class="input-container__item">
-          <label for="pitch">Pitch</label>
-          <input
-            v-model="form.pitch"
-            name="pitch"
-            type="text"
-            placeholder="pitch"
-          />
-        </div>
-      </div>
-      <div class="input-container">
-        <div class="input-container__item">
-          <label for="image">Image</label>
-          <input
-            v-model="form.img_url"
-            name="image"
-            type="text"
-            placeholder="image"
-          />
-        </div>
-      </div>
-      <div class="number-container">
-        <div class="input-container__item">
-          <label for="stars">Stars</label>
-          <input
-            v-model="form.stars"
-            name="stars"
-            type="number"
-            placeholder="stars"
-          />
-        </div>
-        <div class="input-container__item">
-          <label for="price">Price</label>
-          <input
-            v-model="form.price"
-            name="price"
-            type="number"
-            placeholder="price"
-          />
-        </div>
-      </div>
-      <div class="checkbox-container">
-        <div class="input-container__item">
-          <label class="input-container__item--label" for="wifi">Wifi?</label>
-          <input v-model="form.wifi" name="wifi" type="checkbox" />
-        </div>
-        <div class="input-container__item">
-          <label class="input-container__item--label" for="parking"
-            >Parking?</label
-          >
-          <input v-model="form.parking" name="parking" type="checkbox" />
-        </div>
-        <div class="input-container__item">
-          <label class="input-container__item--label" for="gym">Gym?</label>
-          <input v-model="form.gym" name="gym" type="checkbox" />
-        </div>
-        <div class="input-container__item">
-          <label class="input-container__item--label" for="smoking"
-            >Smoking?</label
-          >
-          <input v-model="form.smoking" name="smoking" type="checkbox" />
-        </div>
-        <div class="input-container__item">
-          <label class="input-container__item--label" for="restaurant"
-            >Restaurant?</label
-          >
-          <input v-model="form.restaurant" name="restaurant" type="checkbox" />
-        </div>
-      </div>
-      <div class="input-container">
-        <div class="input-container__textarea">
-          <label for="description">Description</label>
-          <textarea
-            v-model="form.description"
-            name="description"
-            type="text"
-            placeholder="description"
-          />
-        </div>
-      </div>
+    <v-app>
+      <v-card
+        width="500"
+        class="mx-auto my-auto"
+        style="position: relative; max-width: 400px"
+      >
+        <v-card-title>
+          <div class="success-container">
+            <h1 class="display-1  mx-auto  ">Create a hotel</h1>
+            <div class="success-form mx-auto" v-if="loading">
+              Submitting...
+            </div>
+            <div class="success-form mx-auto" v-if="success">
+              Hotel created.
+            </div>
+          </div>
+        </v-card-title>
 
-      <div>
-        <button :disabled="form.name === ''" type="submit">
-          Create
-        </button>
-      </div>
-    </form>
+        <v-card-text>
+          <v-form @submit.prevent="sendForm">
+            <v-text-field
+              label="Name"
+              prepend-icon="mdi-account"
+              :error-messages="nameErrors"
+              v-model="form.name"
+              @input="$v.form.name.$touch()"
+            />
+            <v-text-field
+              label="Address"
+              prepend-icon="mdi-email"
+              v-model="form.address"
+              required
+              :error-messages="addressErrors"
+              @input="$v.form.address.$touch()"
+            />
+            <v-text-field
+              label="Pitch"
+              prepend-icon="mdi-account"
+              :error-messages="pitchErrors"
+              v-model="form.pitch"
+              @input="$v.form.pitch.$touch()"
+            />
+            <v-text-field
+              label="Image"
+              prepend-icon="mdi-account"
+              :error-messages="imageErrors"
+              v-model="form.img_url"
+              @input="$v.form.img_url.$touch()"
+            />
+
+            <div class="stars">
+              <v-text-field
+                label="Stars"
+                type="number"
+                prepend-icon="mdi-account"
+                :error-messages="starsErrors"
+                v-model="form.stars"
+                @input="$v.form.stars.$touch()"
+              />
+              <v-text-field
+                label="Price"
+                type="number"
+                prepend-icon="mdi-account"
+                :error-messages="priceErrors"
+                v-model="form.price"
+                @input="$v.form.price.$touch()"
+              />
+            </div>
+            <div class="service-box">
+              <div class="services-content ">
+                <v-checkbox light v-model="form.wifi" label="Wifi"></v-checkbox>
+                <v-checkbox v-model="form.parking" label="Parking"></v-checkbox>
+                <v-checkbox v-model="form.gym" label="Gym"></v-checkbox>
+              </div>
+              <div class="services-content ">
+                <v-checkbox v-model="form.smoking" label="Smoking"></v-checkbox>
+                <v-checkbox
+                  v-model="form.restaurant"
+                  label="Restaurant"
+                ></v-checkbox>
+              </div>
+            </div>
+
+            <v-textarea
+              class="test"
+              prepend-icon="mdi-message-text"
+              label="Description"
+              :error-messages="descriptionErrors"
+              v-model="form.description"
+              @input="$v.form.description.$touch()"
+            ></v-textarea>
+
+            <v-card-actions>
+              <v-btn type="submit" class=" mt-2 primary">
+                Submit
+              </v-btn>
+            </v-card-actions>
+          </v-form>
+        </v-card-text>
+      </v-card>
+    </v-app>
   </div>
 </template>
+
 <script>
+import { validationMixin } from "vuelidate";
+import {
+  required,
+  minLength,
+  url,
+  integer,
+  between
+} from "vuelidate/lib/validators";
+
 export default {
   name: "CreateHotel",
+
+  mixins: [validationMixin],
+  validations: {
+    form: {
+      name: { required, minLength: minLength(3) },
+      address: { required },
+      description: { required, minLength: minLength(12) },
+      price: { required, integer },
+      stars: { required, integer, between: between(1, 5) },
+      pitch: { required, minLength: minLength(6) },
+      img_url: { required, url }
+    }
+  },
+
   data() {
     return {
+      loading: false,
+      success: false,
+      error: "",
       form: {
-        name: "",
         address: "",
+        name: "",
         pitch: "",
-        image: "",
+        description: "",
+        img_url: "",
         stars: 0,
-        price: 0,
-        isFeatured: false,
+        price: "",
         wifi: false,
         parking: false,
         gym: false,
         smoking: false,
-        restaurant: false,
-        description: "",
-        users_permissions_user: this.$strapi.user
+        restaurant: false
       }
     };
   },
-  methods: {
-    async createPost(e) {
-      const formData = new FormData();
 
-      formData.append("data", JSON.stringify(this.form));
-      e.preventDefault();
-      await this.$strapi.$hotels.create(formData);
+  computed: {
+    nameErrors() {
+      const errors = [];
+      if (!this.$v.form.name.$dirty) return errors;
+      !this.$v.form.name.minLength &&
+        errors.push("Name must be min 3 characters long");
+      !this.$v.form.name.required && errors.push("Name is required.");
+      return errors;
+    },
+    pitchErrors() {
+      const errors = [];
+      if (!this.$v.form.pitch.$dirty) return errors;
+      !this.$v.form.pitch.minLength &&
+        errors.push("Pitch must be min 6 characters long");
+      !this.$v.form.pitch.required && errors.push("Pitch is required.");
+      return errors;
+    },
+    imageErrors() {
+      const errors = [];
+      if (!this.$v.form.img_url.$dirty) return errors;
+      !this.$v.form.img_url.url && errors.push("Image must be a valid url");
+      !this.$v.form.img_url.required && errors.push("Image is required.");
+      return errors;
+    },
+    descriptionErrors() {
+      const errors = [];
+      if (!this.$v.form.description.$dirty) return errors;
+      !this.$v.form.description.minLength &&
+        errors.push("description must be min 12 characters long");
+      !this.$v.form.description.required &&
+        errors.push("description is required.");
+      return errors;
+    },
+    addressErrors() {
+      const errors = [];
+      if (!this.$v.form.address.$dirty) return errors;
+      !this.$v.form.address.required && errors.push("Address is required.");
+      return errors;
+    },
+    priceErrors() {
+      const errors = [];
+      if (!this.$v.form.price.$dirty) return errors;
+      !this.$v.form.price.integer && errors.push("Please use a number");
+      !this.$v.form.price.required && errors.push("Price is required.");
+      return errors;
+    },
+    starsErrors() {
+      const errors = [];
+      if (!this.$v.form.stars.$dirty) return errors;
+      !this.$v.form.stars.integer && errors.push("Please use a number");
+      !this.$v.form.stars.between &&
+        errors.push("Please use a number between 1 and 5");
+
+      !this.$v.form.stars.required && errors.push("Price is required.");
+      return errors;
     }
   },
-  middleware({ $strapi, redirect }) {
-    if (!$strapi.user) {
-      redirect("/");
+
+  methods: {
+    async sendForm() {
+      this.$v.form.$touch();
+
+      if (this.$v.form.$pending || this.$v.form.$error) return;
+      try {
+        this.loading = true;
+
+        const formData = new FormData();
+
+        formData.append("data", JSON.stringify(this.form));
+
+        await this.$strapi.$hotels.create(formData);
+      } catch (error) {
+        console.log(error);
+        this.error = error.message;
+      } finally {
+        this.loading = false;
+        if (!this.error) {
+          this.success = true;
+          this.$v.form.$reset();
+        }
+      }
     }
-  }
+  },
+  middleware: "authenticated"
 };
 </script>
-<style lang="scss" scoped>
-@import "../../assets/variables.scss";
 
-h2 {
-  text-align: center;
-  padding: 2rem 0;
+<style lang="scss" scoped>
+.stars {
+  display: flex;
+}
+
+.services-content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.service-box {
+  background: var(--brand-grey);
 }
 
 .create-hotel-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #f2f2f2;
   width: 100%;
-  height: 100vh;
+  background: #f2f2f2;
 }
 
-.input-container {
-  display: flex;
-  justify-content: space-between;
-  width: 350px;
-  padding: 0.5rem 0;
+.theme--light.v-application {
+  background: transparent !important;
 }
 
-.number-container {
-  display: flex;
-  justify-content: space-between;
-  width: 250px;
-  padding: 0.5rem 0;
-}
-
-.checkbox-container {
-  display: flex;
-  justify-content: space-between;
-  width: 300px;
-  padding: 0.5rem 0.5rem;
-  background: $brand-grey;
-}
-
-.input-container__item {
+.success-container {
+  width: 100%;
+  justify-content: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 60px;
-}
-
-.input-container__textarea {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 230px;
-}
-
-input[type="checkbox"] {
-  transform: scale(1.5);
-  margin: 0 auto;
-  height: 35px;
-}
-
-input[type="text"] {
-  height: 35px;
-  width: 250px;
-}
-
-input[type="number"] {
-  height: 35px;
-  width: 100px;
-}
-
-.input-container__item--label {
-  font-size: 12px;
-}
-
-textarea {
-  width: 300px;
-  height: 200px;
 }
 </style>

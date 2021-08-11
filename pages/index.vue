@@ -17,15 +17,13 @@ import Header from "../components/home/Header.vue";
 import Explore from "../components/home/explore/Explore.vue";
 import Accommodations from "../components/home/hotels/Accommodations.vue";
 import Questions from "../components/home/questions/Questions.vue";
-import Nav from "../components/layout/Nav.vue";
 
 export default {
   components: {
     Header,
     Explore,
     Accommodations,
-    Questions,
-    Nav
+    Questions
   },
   async asyncData({ $strapi }) {
     const hotels = await $strapi.$hotels.find();
@@ -33,7 +31,6 @@ export default {
       "https://young-gorge-89900.herokuapp.com/header-video"
     );
     const res = await video.json();
-    console.log(res);
     return { hotels, res };
   },
   methods: {
