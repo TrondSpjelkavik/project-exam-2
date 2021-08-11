@@ -4,25 +4,45 @@
       <h1 class="admin-headline">Admin Panel</h1>
       <div>
         <ul class="admin-buttons">
-          <div @click="createHotel" class="admin_nav-icon">
+          <div
+            @click="createHotel"
+            class="admin_nav-icon"
+            v-model="createActive"
+            :class="{ active: createActive }"
+          >
             <v-icon class="admin-icon" size="36">
               {{ icons.mdiHomeCity }}
             </v-icon>
             <li>Create</li>
           </div>
-          <div @click="messages" class="admin_nav-icon">
+          <div
+            @click="messages"
+            class="admin_nav-icon"
+            v-model="messagesActive"
+            :class="{ active: messagesActive }"
+          >
             <v-icon class="admin-icon" size="36">
               {{ icons.mdiAndroidMessages }}
             </v-icon>
             <li>Messages</li>
           </div>
-          <div @click="enquiries" class="admin_nav-icon">
+          <div
+            @click="enquiries"
+            class="admin_nav-icon"
+            v-model="enquiriesActive"
+            :class="{ active: enquiriesActive }"
+          >
             <v-icon class="admin-icon" size="36">
               {{ icons.mdiForum }}
             </v-icon>
             <li>Enquiries</li>
           </div>
-          <div class="admin_nav-icon" @click="update">
+          <div
+            class="admin_nav-icon"
+            @click="update"
+            v-model="updateActive"
+            :class="{ active: updateActive }"
+          >
             <v-icon class="admin-icon" size="36">
               {{ icons.mdiUpdate }}
             </v-icon>
@@ -39,6 +59,10 @@ export default {
   name: "AdminNav",
   data() {
     return {
+      createActive: true,
+      messagesActive: false,
+      enquiriesActive: false,
+      updateActive: false,
       icons: {
         mdiHomeCity,
         mdiAndroidMessages,
@@ -50,15 +74,31 @@ export default {
   methods: {
     createHotel() {
       this.$emit("update:content", "CreateHotel");
+      this.createActive = true;
+      this.messagesActive = false;
+      this.enquiriesActive = false;
+      this.updateActive = false;
     },
     messages() {
       this.$emit("update:content", "Messages");
+      this.createActive = false;
+      this.messagesActive = true;
+      this.enquiriesActive = false;
+      this.updateActive = false;
     },
     enquiries() {
       this.$emit("update:content", "Enquiries");
+      this.createActive = false;
+      this.messagesActive = false;
+      this.enquiriesActive = true;
+      this.updateActive = false;
     },
     update() {
       this.$emit("update:content", "UpdateHotels");
+      this.createActive = false;
+      this.messagesActive = false;
+      this.enquiriesActive = false;
+      this.updateActive = true;
     }
   }
 };
@@ -109,5 +149,11 @@ li {
   color: black;
   justify-content: center;
   align-items: center;
+}
+
+.active {
+  text-decoration: underline;
+  text-decoration-color: var(--brand-green);
+  text-decoration-thickness: 4px;
 }
 </style>
