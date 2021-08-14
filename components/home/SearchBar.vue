@@ -34,12 +34,14 @@ export default {
     };
   },
   methods: {
+    // Fetching all hotels from API.
     async getAllHotels() {
       const url = process.env.STRAPI_URL + "hotels";
       const res = await fetch(url);
 
       const data = await res.json();
 
+      // Filtering this.search when typing
       if (this.search) {
         this.hotels = data.filter(hotel =>
           hotel.name.toLowerCase().includes(this.search.toLowerCase())
@@ -47,7 +49,7 @@ export default {
       } else {
         this.hotels = data;
       }
-
+      // No results if the length of hotels is 0 after filtering
       if (this.hotels.length === 0) {
         this.hotels.name = "No results...";
       }
@@ -59,10 +61,12 @@ export default {
       }
     },
     hotelPage(hotel) {
+      // Sending user to hotel on click
       this.$nuxt.$router.push(`/hotel/${hotel.id}`);
     }
   },
   created() {
+    // fetching all hotels on created
     this.getAllHotels();
   }
 };

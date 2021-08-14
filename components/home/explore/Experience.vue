@@ -18,6 +18,7 @@ export default {
     };
   },
   created() {
+    // Experience data
     this.xp = [
       {
         id: 1,

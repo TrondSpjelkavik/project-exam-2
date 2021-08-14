@@ -107,6 +107,7 @@
 
 <script>
 import { mdiArrowLeft } from "@mdi/js";
+// Validation vuelidate. Added plugin
 import { validationMixin } from "vuelidate";
 import {
   required,
@@ -136,6 +137,7 @@ export default {
       loading: false,
       success: false,
       error: "",
+      // Back icon
       icons: {
         mdiArrowLeft
       },
@@ -154,6 +156,7 @@ export default {
     };
   },
 
+  // Validations and error messages
   computed: {
     nameErrors() {
       const errors = [];
@@ -212,6 +215,7 @@ export default {
   },
 
   methods: {
+    // Sending data to API. Also validate if the form is pending, or has error.
     async sendForm(id) {
       this.$v.$touch();
 
@@ -246,9 +250,11 @@ export default {
       }
     },
     goBack() {
+      // Back function
       this.$nuxt.$router.push("/admin");
     }
   },
+  // Checking if user is authenticated on Strapi
   middleware: "authenticated"
 };
 </script>

@@ -87,9 +87,11 @@ export default {
     };
   },
   created() {
+    // Calling setName method and sets name for data: form.name
     this.setName();
   },
   methods: {
+    // Sets name for housing name to API
     setName() {
       this.form.name = this.hotel.name;
     },
@@ -101,7 +103,6 @@ export default {
 
         formData.append("data", JSON.stringify(this.form));
 
-        console.log(formData);
         await this.$strapi.$enquiries.create(formData);
       } catch (error) {
         console.log(error);

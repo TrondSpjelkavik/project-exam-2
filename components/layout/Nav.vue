@@ -41,7 +41,7 @@
           </button>
         </div>
       </ul>
-
+      <!-- Hamburger -->
       <div
         class="nav-icon"
         :class="{ open: toggleNav }"
@@ -63,11 +63,14 @@ export default {
     };
   },
   methods: {
+    // Toggle Nav
     closeNav() {
       this.toggleNav = !this.toggleNav;
     },
+    // logging user out
     async logout() {
       await this.$strapi.logout();
+
       this.$nuxt.$router.push("/login");
     }
   }

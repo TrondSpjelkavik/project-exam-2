@@ -49,6 +49,7 @@
 </template>
 
 <script>
+// Validations vuelidate
 import { validationMixin } from "vuelidate";
 import { required, minLength, email } from "vuelidate/lib/validators";
 
@@ -76,6 +77,7 @@ export default {
   },
 
   computed: {
+    // Validations vuelidate error messages
     nameErrors() {
       const errors = [];
       if (!this.$v.form.name.$dirty) return errors;
@@ -102,6 +104,7 @@ export default {
   },
 
   methods: {
+    // Sending data to API. Also validate if the form is pending, or has error.
     async sendForm() {
       this.$v.form.$touch();
 

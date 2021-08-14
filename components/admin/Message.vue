@@ -33,6 +33,7 @@ export default {
   },
 
   methods: {
+    // Delete function with a alert box
     async deleteMessage(id) {
       try {
         if (confirm("Are you sure you want to delete this message?")) {
@@ -41,9 +42,11 @@ export default {
       } catch (error) {
         console.log(error);
       } finally {
+        // Sending user back to admin if delete is confirmed
         this.$nuxt.$router.push("/admin");
       }
     },
+    // Moment pkg. Date formatter
     formatDate(date) {
       return moment(date).format("MMMM Do YYYY, h:mm:ss a");
     }

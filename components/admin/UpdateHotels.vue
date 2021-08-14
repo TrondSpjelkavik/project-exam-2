@@ -24,6 +24,7 @@ import Stars from "../establishment/Stars.vue";
 import SubHeadline from "../layout/SubHeadline.vue";
 
 export default {
+  // Props: Housing data and single house data
   props: ["hotels", "updatePage"],
   components: {
     Stars,

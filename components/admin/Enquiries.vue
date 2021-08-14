@@ -47,11 +47,13 @@ export default {
     SubHeadline
   },
   methods: {
+    // Moment pkg. Date formatter
     formatDate(date) {
       return moment(date).format("MMMM Do YYYY ");
     }
   },
   computed: {
+    // Checking if the Enquirie post is read.
     enquiriesRead() {
       return this.enquiries.filter(read => read.hasRead === false);
     },
@@ -60,6 +62,7 @@ export default {
     }
   },
   created() {
+    // Sorting dates
     const array = this.enquiries;
     array.forEach(item => {
       let dates = [item.created_at];

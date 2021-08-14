@@ -1,6 +1,7 @@
 <template>
   <div class="feature-box">
     <div :key="hotel.id" v-for="hotel in hotels" @click="hotelPage(hotel)">
+      <!-- Cheking if the hotel is featured -->
       <div class="card" v-if="hotel.isFeatured">
         <div></div>
         <nuxt-img :src="hotel.img_url" class="img-hotel" />
@@ -28,11 +29,12 @@ export default {
     };
   },
   async fetch() {
+    // Fetching hotel data from API
     const url = process.env.STRAPI_URL + "hotels";
     const res = await fetch(url);
 
     const data = await res.json();
-
+    // filling hotels from fetch
     this.hotels = data;
   }
 };

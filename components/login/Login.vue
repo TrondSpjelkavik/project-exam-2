@@ -45,6 +45,7 @@
 </template>
 
 <script>
+// Validations from vuelidate / added to plugins
 import { validationMixin } from "vuelidate";
 import { required, minLength, email } from "vuelidate/lib/validators";
 
@@ -71,6 +72,7 @@ export default {
   },
 
   computed: {
+    // Validations and error messages
     identifierErrors() {
       const errors = [];
       if (!this.$v.form.identifier.$dirty) return errors;
@@ -89,6 +91,7 @@ export default {
   },
 
   methods: {
+    // Sending data to API. Also validate if the form is pending, or has error.
     async sendForm() {
       this.$v.form.$touch();
 
@@ -117,11 +120,14 @@ export default {
       }
     }
   },
+
+  // Cheking if the user is authenticated with strapi
   middleware: "authenticated"
 };
 </script>
 
 <style lang="scss" scoped>
+// Changed bootstrap color to brand-green
 .v-application--wrap {
   background: var(--brand-green) !important;
 }

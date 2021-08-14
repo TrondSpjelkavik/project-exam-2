@@ -72,6 +72,9 @@ export default {
     };
   },
   methods: {
+    // An easy check which component is active, and content updates on each click -> switching component.
+    // TODO: Add CSS on class that styles layout
+
     createHotel() {
       this.$emit("update:content", "CreateHotel");
       this.createActive = true;

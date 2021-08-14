@@ -46,6 +46,7 @@
 </template>
 
 <script>
+// Validations from vuelidate / added to plugins
 import { validationMixin } from "vuelidate";
 import { required, minLength, email } from "vuelidate/lib/validators";
 
@@ -72,6 +73,7 @@ export default {
   },
 
   computed: {
+    // Validations and error messages
     userNameErrors() {
       const errors = [];
       if (!this.$v.form.username.$dirty) return errors;
@@ -98,19 +100,20 @@ export default {
   },
 
   methods: {
+    // Sending data to API. Also validate if the form is pending, or has error.
     async sendForm() {
       this.$v.form.$touch();
 
       if (this.$v.form.$pending || this.$v.form.$error) return;
       try {
         this.form.loading = true;
-
+        // $strapi.register sends info to the API
         const newUser = await this.$strapi.register({
           email: this.form.email,
           username: this.form.username,
           password: this.form.password
         });
-
+        // If new user not equal to null it will send the user to login page
         if (newUser !== null) {
           this.error = "";
           this.$nuxt.$router.push("/login");
@@ -128,6 +131,7 @@ export default {
       }
     }
   },
+  // Checking if user is authenticated on Strapi
   middleware: "authenticated"
 };
 </script>

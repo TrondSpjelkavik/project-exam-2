@@ -1,5 +1,6 @@
 <template>
   <div class="create-hotel-container">
+    <!-- Vuetify with custom class and elements -->
     <v-app>
       <v-card
         width="500"
@@ -101,10 +102,13 @@
         </v-card-text>
       </v-card>
     </v-app>
+    <!-- Vuetify End  -->
   </div>
 </template>
 
 <script>
+// Validations from vuelidate / added to plugins
+
 import { validationMixin } from "vuelidate";
 import {
   required,
@@ -135,6 +139,7 @@ export default {
       loading: false,
       success: false,
       error: "",
+      // Sending req on submit
       form: {
         address: "",
         name: "",
@@ -153,6 +158,7 @@ export default {
   },
 
   computed: {
+    // Validations
     nameErrors() {
       const errors = [];
       if (!this.$v.form.name.$dirty) return errors;
@@ -211,6 +217,8 @@ export default {
   },
 
   methods: {
+    // Sending data to API. Also validate if the form is pending, or has error.
+
     async sendForm() {
       this.$v.form.$touch();
 
@@ -222,12 +230,14 @@ export default {
 
         formData.append("data", JSON.stringify(this.form));
 
+        // Strapi pkg for Nuxtjs Read more at https://strapi.nuxtjs.org/
         await this.$strapi.$hotels.create(formData);
       } catch (error) {
         console.log(error);
         this.error = error.message;
       } finally {
         this.loading = false;
+        // Checking if there is no error -> sucess message and reset form
         if (!this.error) {
           this.success = true;
           this.$v.form.$reset();
@@ -235,6 +245,7 @@ export default {
       }
     }
   },
+  // Checking if user is authenticated on Strapi
   middleware: "authenticated"
 };
 </script>

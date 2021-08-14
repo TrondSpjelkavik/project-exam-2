@@ -56,7 +56,8 @@ export default {
     updatePage(hotel) {
       this.$nuxt.$router.push(`/update/${hotel.id}`);
     }
-  }
+  },
+  middleware: "authenticated"
 };
 </script>
 <style scoped>

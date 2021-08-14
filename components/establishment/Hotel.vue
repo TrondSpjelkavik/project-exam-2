@@ -61,6 +61,7 @@ export default {
     };
   },
   methods: {
+    // Open and close modal
     closeModal: function() {
       this.modal = false;
     },

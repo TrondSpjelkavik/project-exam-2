@@ -25,6 +25,7 @@ export default {
     };
   },
   methods: {
+    // Cheking of checkbox is toggled, and updating API -> hasRead
     async toggleText(id) {
       this.text = this.hasRead ? "Mark as unread" : "Mark as read";
       try {
@@ -39,6 +40,7 @@ export default {
     }
   },
   created() {
+    // This.hasRead updated on created
     this.hasRead = this.enquirie.hasRead;
   }
 };

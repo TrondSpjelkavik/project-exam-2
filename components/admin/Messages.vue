@@ -28,11 +28,13 @@ export default {
     SubHeadline
   },
   methods: {
+    // Date formatter. Moment pkg
     formatDate(date) {
       return moment(date).format("MMMM Do YYYY");
     }
   },
   created() {
+    // Sorting date
     const array = this.messages;
     array.forEach(item => {
       let dates = [item.created_at];
