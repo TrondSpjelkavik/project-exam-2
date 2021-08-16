@@ -39,6 +39,7 @@ export default {
     // An easy check which component is active, and content updates on each click -> switching component.
     showAll() {
       this.$emit("update:content", "All");
+
       this.all = true;
       this.hotels = false;
       this.guesthouse = false;

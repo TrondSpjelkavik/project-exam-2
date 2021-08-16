@@ -70,7 +70,6 @@ export default {
     // logging user out
     async logout() {
       await this.$strapi.logout();
-
       this.$nuxt.$router.push("/login");
     }
   }

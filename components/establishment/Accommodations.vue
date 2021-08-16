@@ -100,6 +100,5 @@ h2 {
   flex-wrap: wrap;
   padding: 2rem 0;
   margin: 0 auto;
-  min-height: 100vh;
 }
 </style>
