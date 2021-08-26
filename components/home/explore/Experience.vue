@@ -60,6 +60,7 @@ export default {
   height: 350px;
   width: 350px;
   border-bottom: 5px solid var(--brand-blue);
+  box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.25);
   @media (max-width: 1089px) {
     height: 300px;
     width: 300px;

@@ -15,8 +15,9 @@ export default {
 <style lang="scss" scoped>
 .sub-headline {
   text-align: center;
-  font-size: 33px;
-  padding: 2rem 0;
+  font-size: 38px;
+  padding: 4rem 0;
   font-family: var(--font-headline);
+  font-weight: 700;
 }
 </style>

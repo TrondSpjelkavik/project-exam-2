@@ -27,6 +27,7 @@ footer {
   justify-content: center;
   align-items: center;
   position: relative;
+  background-color: white;
 }
 .footer-container {
   display: flex;
@@ -54,5 +55,6 @@ p {
   text-align: center;
   padding-bottom: 10px;
   font-weight: 700;
+  background-color: white;
 }
 </style>

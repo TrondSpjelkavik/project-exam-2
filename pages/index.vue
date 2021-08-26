@@ -70,6 +70,9 @@ video {
 body {
   font-family: var(--font-text);
   margin: 0 auto;
+
+  background-image: url("../assets/pattern.png");
+  background-repeat: repeat;
 }
 
 .v-btn__content {

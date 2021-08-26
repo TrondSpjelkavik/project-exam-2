@@ -41,11 +41,13 @@ export default {
 
 .open {
   opacity: 1;
-  max-width: 380px;
+  max-width: 400px;
   margin: 0 auto;
   height: fit-content;
   transition: all 0.5s linear;
   padding: 10px 0;
+  background-color: rgba(255, 255, 255, 0.6);
+
   @media (max-width: 800px) {
     max-width: 280px;
   }
@@ -54,9 +56,16 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 380px;
+  width: 400px;
   margin: 0 auto;
   border-bottom: 2px solid var(--brand-grey);
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-left: 10px;
+  li {
+    font-size: 18px;
+  }
+
   @media (max-width: 800px) {
     width: 300px;
   }

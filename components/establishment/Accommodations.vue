@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="hotels-container">
+      <div class="marked-main"></div>
       <div
         :key="hotel.id"
         v-for="hotel in hotels"
@@ -29,6 +30,16 @@ export default {
 };
 </script>
 <style lang="scss">
+.marked-main {
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
+
+  border-top: 4px solid var(--brand-green);
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.6);
+  position: absolute;
+}
 .card {
   height: 325px;
   width: 300px;
@@ -95,7 +106,8 @@ h2 {
 
 .hotels-container {
   display: flex;
-  max-width: 1200px;
+  max-width: 1000px;
+
   justify-content: center;
   flex-wrap: wrap;
   padding: 2rem 0;
