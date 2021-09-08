@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="hotels-container">
-      <div class="marked-div"></div>
+      <div class="marked-main"></div>
       <div :key="hotel.id" v-for="hotel in hotels" @click="hotelPage(hotel)">
         <div class="card" v-if="hotel.hotel">
           <div></div>
@@ -26,14 +26,4 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
-.marked-div {
-  width: 1100px;
-  height: 100%;
-  margin-bottom: 10px;
-  border-top: 4px solid var(--brand-orange);
-  border-radius: 25px;
-  background-color: rgba(255, 255, 255, 0.6);
-  position: absolute;
-}
-</style>
+<style lang="scss"></style>

@@ -69,6 +69,16 @@
                 @input="$v.form.price.$touch()"
               />
             </div>
+            <div class="accomodation-type">
+              <div class=" services-content ">
+                <v-checkbox light v-model="form.bb" label="B & B"></v-checkbox>
+                <v-checkbox v-model="form.hotel" label="Hotel"></v-checkbox>
+                <v-checkbox
+                  v-model="form.guesthouse"
+                  label="Guesthouse"
+                ></v-checkbox>
+              </div>
+            </div>
             <div class="service-box">
               <div class="services-content ">
                 <v-checkbox light v-model="form.wifi" label="Wifi"></v-checkbox>
@@ -152,7 +162,10 @@ export default {
         parking: false,
         gym: false,
         smoking: false,
-        restaurant: false
+        restaurant: false,
+        bb: false,
+        hotel: false,
+        guesthouse: false
       }
     };
   },
@@ -281,5 +294,9 @@ export default {
   justify-content: center;
   display: flex;
   flex-direction: column;
+}
+
+.accomodation-type {
+  padding: 1rem 0;
 }
 </style>

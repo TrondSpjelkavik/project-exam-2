@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="hotels-container">
+      <div class="marked-main"></div>
       <div :key="hotel.id" v-for="hotel in hotels" @click="hotelPage(hotel)">
         <div class="card" v-if="hotel.bb">
           <div></div>

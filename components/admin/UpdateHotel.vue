@@ -6,16 +6,28 @@
         class="mx-auto my-auto"
         style="position: relative; max-width: 400px"
       >
-        <v-icon @click="goBack" color="black" size="36">
+        <v-icon @click="goBack" color="black" size="36" class="back-icon">
           {{ icons.mdiArrowLeft }}
         </v-icon>
-        <v-card-title>
+        <v-icon
+          @click="deleteHotel(hotels.id)"
+          color="black"
+          size="36"
+          class="delete-icon"
+        >
+          {{ icons.mdiDelete }}
+        </v-icon>
+
+        <v-card-title class="header-center">
           <h1 class="display-1  mx-auto  ">Update a hotel</h1>
           <div class="success-form " v-if="loading">
             Submitting...
           </div>
           <div class="success-form" v-if="success">
             Hotel updated.
+          </div>
+          <div class="success-form" v-if="deleted">
+            Hotel deleted. Redirecting...
           </div>
         </v-card-title>
 
@@ -107,6 +119,8 @@
 
 <script>
 import { mdiArrowLeft } from "@mdi/js";
+import { mdiDelete } from "@mdi/js";
+
 // Validation vuelidate. Added plugin
 import { validationMixin } from "vuelidate";
 import {
@@ -136,10 +150,12 @@ export default {
     return {
       loading: false,
       success: false,
+      deleted: false,
       error: "",
-      // Back icon
+      // Icons
       icons: {
-        mdiArrowLeft
+        mdiArrowLeft,
+        mdiDelete
       },
       address: this.hotels.address,
       name: this.hotels.name,
@@ -251,7 +267,26 @@ export default {
     },
     goBack() {
       // Back function
+
       this.$nuxt.$router.push("/admin");
+    },
+    async deleteHotel(id) {
+      try {
+        this.loading = true;
+        const deleteHotel = await this.$strapi.$hotels.delete(id);
+        console.log(deleteHotel);
+      } catch (error) {
+        console.log(error);
+        this.error = error.message;
+      } finally {
+        this.loading = false;
+        if (!this.error) {
+          this.deleted = true;
+          setTimeout(() => {
+            this.$nuxt.$router.push("/admin");
+          }, 2000);
+        }
+      }
     }
   },
   // Checking if user is authenticated on Strapi
@@ -282,5 +317,23 @@ export default {
 }
 .theme--light.v-application {
   background: transparent !important;
+}
+
+.delete-icon {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.back-icon {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.header-center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
 }
 </style>
