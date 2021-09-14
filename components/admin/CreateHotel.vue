@@ -70,6 +70,7 @@
               />
             </div>
             <div class="accomodation-type">
+              <small>Please chose only one housing type</small>
               <div class=" services-content ">
                 <v-checkbox light v-model="form.bb" label="B & B"></v-checkbox>
                 <v-checkbox v-model="form.hotel" label="Hotel"></v-checkbox>
@@ -282,7 +283,6 @@ export default {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background: #f2f2f2;
 }
 
 .theme--light.v-application {

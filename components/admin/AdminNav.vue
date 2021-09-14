@@ -157,6 +157,6 @@ li {
 .active {
   text-decoration: underline;
   text-decoration-color: var(--brand-green);
-  text-decoration-thickness: 4px;
+  text-decoration-thickness: 5px;
 }
 </style>

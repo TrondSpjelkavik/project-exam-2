@@ -74,7 +74,6 @@ export default {
 .create-hotel-container {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
   justify-content: space-around;
   background: #f2f2f2;
   height: 100vh;

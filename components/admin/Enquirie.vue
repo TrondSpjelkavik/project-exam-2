@@ -32,8 +32,6 @@ export default {
         const update = await this.$strapi.$enquiries.update(id, {
           hasRead: this.hasRead
         });
-
-        console.log(update);
       } catch (error) {
         console.log(error);
       }

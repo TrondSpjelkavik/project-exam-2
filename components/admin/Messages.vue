@@ -1,10 +1,11 @@
-<template lang="">
+<template>
   <div class="container-hoo">
     <SubHeadline headline="Messages" />
     <div class="create-hotel-container">
       <div
         class="message-container"
         v-for="message in messages"
+        :key="message.id"
         @click="messagePage(message)"
       >
         <div class="message-box">
@@ -48,9 +49,8 @@ export default {
 .create-hotel-container {
   display: flex;
   flex-wrap: wrap;
-
+  max-width: 1000px;
   justify-content: space-around;
-  background: #f2f2f2;
   margin: 0 auto;
 }
 

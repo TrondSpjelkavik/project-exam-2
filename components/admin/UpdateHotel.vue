@@ -19,7 +19,7 @@
         </v-icon>
 
         <v-card-title class="header-center">
-          <h1 class="display-1  mx-auto  ">Update a hotel</h1>
+          <h1 class="display-1  mx-auto  ">Update housing</h1>
           <div class="success-form " v-if="loading">
             Submitting...
           </div>
@@ -80,6 +80,17 @@
                 v-model="price"
                 @input="$v.price.$touch()"
               />
+            </div>
+            <div class="accomodation-type">
+              <small>Please chose only one housing type</small>
+              <div class=" services-content ">
+                <v-checkbox light v-model="bb" label="B & B"></v-checkbox>
+                <v-checkbox v-model="hotel" label="Hotel"></v-checkbox>
+                <v-checkbox
+                  v-model="guesthouse"
+                  label="Guesthouse"
+                ></v-checkbox>
+              </div>
             </div>
             <div class="service-box">
               <div class="services-content ">
@@ -168,7 +179,10 @@ export default {
       parking: this.hotels.parking,
       gym: this.hotels.gym,
       smoking: this.hotels.smoking,
-      restaurant: this.hotels.restaurant
+      restaurant: this.hotels.restaurant,
+      hotel: this.hotels.hotel,
+      bb: this.hotels.bb,
+      guesthouse: this.hotels.guesthouse
     };
   },
 
@@ -251,10 +265,11 @@ export default {
           parking: this.parking,
           gym: this.gym,
           smoking: this.smoking,
-          restaurant: this.restaurant
+          restaurant: this.restaurant,
+          hotel: this.hotel,
+          bb: this.bb,
+          guesthouse: this.guesthouse
         });
-
-        console.log(update);
       } catch (error) {
         console.log(error);
         this.error = error.message;
@@ -271,20 +286,22 @@ export default {
       this.$nuxt.$router.push("/admin");
     },
     async deleteHotel(id) {
-      try {
-        this.loading = true;
-        const deleteHotel = await this.$strapi.$hotels.delete(id);
-        console.log(deleteHotel);
-      } catch (error) {
-        console.log(error);
-        this.error = error.message;
-      } finally {
-        this.loading = false;
-        if (!this.error) {
-          this.deleted = true;
-          setTimeout(() => {
-            this.$nuxt.$router.push("/admin");
-          }, 2000);
+      if (confirm(`Do you want to delete ${this.name}`)) {
+        try {
+          this.loading = true;
+          await this.$strapi.$hotels.delete(id);
+        } catch (error) {
+          console.log(error);
+          this.error = error.message;
+        } finally {
+          this.loading = false;
+          if (!this.error) {
+            this.deleted = true;
+
+            setTimeout(() => {
+              this.$nuxt.$router.push("/admin");
+            }, 2000);
+          }
         }
       }
     }
@@ -313,7 +330,6 @@ export default {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background: #f2f2f2;
 }
 .theme--light.v-application {
   background: transparent !important;

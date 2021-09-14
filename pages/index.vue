@@ -60,6 +60,11 @@ export default {
   box-sizing: border-box;
 }
 
+small {
+  display: flex;
+  justify-content: center;
+}
+
 video {
   z-index: -1;
   object-fit: cover;
