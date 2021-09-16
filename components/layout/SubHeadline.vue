@@ -19,5 +19,8 @@ export default {
   padding: 4rem 0;
   font-family: var(--font-headline);
   font-weight: 700;
+  @media (max-width: 400px) {
+    font-size: 28px;
+  }
 }
 </style>

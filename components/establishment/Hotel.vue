@@ -28,7 +28,7 @@
 
             <div class="modal" :class="{ active: modal }">
               <div tabindex="0" class="modal-inner" ref="modal_1">
-                <Modal2 :hotel="hotel" :closeModal="closeModal" />
+                <Modal :hotel="hotel" :closeModal="closeModal" />
               </div>
             </div>
 
@@ -43,14 +43,14 @@
   </div>
 </template>
 <script>
-import Modal2 from "./Modal2.vue";
+import Modal from "./Modal.vue";
 import Stars from "./Stars.vue";
 import Services from "./Services.vue";
 
 export default {
   name: "Hotel",
   components: {
-    Modal2,
+    Modal,
     Stars,
     Services
   },

@@ -1,27 +1,23 @@
 <template lang="">
   <div>
-    <div>
-      <div>
-        <ul>
-          <div @click="showAll" v-model="all" :class="{ active: all }">
-            <li>All</li>
-          </div>
-          <div @click="showHotels" v-model="hotels" :class="{ active: hotels }">
-            <li>Hotels</li>
-          </div>
-          <div
-            @click="showGuesthouses"
-            v-model="guesthouse"
-            :class="{ active: guesthouse }"
-          >
-            <li>Guesthouses</li>
-          </div>
-          <div @click="showBBs" v-model="bb" :class="{ active: bb }">
-            <li>Bed & Breakfast</li>
-          </div>
-        </ul>
+    <ul>
+      <div @click="showAll" v-model="all" :class="{ active: all }">
+        <li>All</li>
       </div>
-    </div>
+      <div @click="showHotels" v-model="hotels" :class="{ active: hotels }">
+        <li>Hotels</li>
+      </div>
+      <div
+        @click="showGuesthouses"
+        v-model="guesthouse"
+        :class="{ active: guesthouse }"
+      >
+        <li>Guesthouses</li>
+      </div>
+      <div @click="showBBs" v-model="bb" :class="{ active: bb }">
+        <li>B & Bs</li>
+      </div>
+    </ul>
   </div>
 </template>
 <script>
@@ -72,7 +68,7 @@ export default {
 <style lang="scss" scoped>
 ul {
   display: flex;
-  width: 600px;
+  max-width: 600px;
   margin: 0 auto;
   justify-content: space-around;
   align-items: center;

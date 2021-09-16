@@ -3,10 +3,11 @@
 ## TO DO:
 
 - Make the site 100% responsive
-- Reset createHotel form
+- Check and reset forms
 - Feature on create and update.
 - clean up container-hoo and create-hotel-container
-- clean up unused components
+- clean up unused
+- Style enquire details and messages enquire
 
 # Cuz reason
 

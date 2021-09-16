@@ -40,7 +40,6 @@ export default {
   },
   async asyncData({ $strapi }) {
     const hotels = await $strapi.$hotels.find();
-    console.log(hotels);
     return { hotels };
   },
   methods: {

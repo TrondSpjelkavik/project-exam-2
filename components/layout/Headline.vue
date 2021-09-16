@@ -18,5 +18,8 @@ export default {
   font-size: 44px;
   padding: 2rem 0;
   font-family: var(--font-headline);
+  @media (max-width: 400px) {
+    font-size: 28px;
+  }
 }
 </style>

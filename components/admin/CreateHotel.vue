@@ -251,9 +251,25 @@ export default {
         this.error = error.message;
       } finally {
         this.loading = false;
+
         // Checking if there is no error -> sucess message and reset form
         if (!this.error) {
           this.success = true;
+          this.form.name = "";
+          this.form.address = "";
+          this.form.pitch = "";
+          this.form.description = "";
+          this.form.img_url = "";
+          this.form.stars = 0;
+          this.form.price = "";
+          this.form.wifi = false;
+          this.form.parking = false;
+          this.form.gym = false;
+          this.form.smoking = false;
+          this.form.restaurant = false;
+          this.form.bb = false;
+          this.form.hotel = false;
+          this.form.guesthouse = false;
           this.$v.form.$reset();
         }
       }
