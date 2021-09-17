@@ -1,11 +1,11 @@
 <template>
-  <div class="container-hoo">
+  <div class="admin-box">
     <SubHeadline headline="Enquiries" />
     <div class="create-hotel-container">
       <div>
         <h2>New enquirires</h2>
         <div
-          class="message-container"
+          class="messages-container"
           v-for="(enquirie, index) in enquiriesRead"
           :key="index"
           @click="enquiriePage(enquirie)"
@@ -21,7 +21,7 @@
       <div>
         <h2>Old enquirires</h2>
         <div
-          class="message-container"
+          class="messages-container"
           v-for="enquirie in enquiriesNotRead"
           :key="enquirie.id"
           @click="enquiriePage(enquirie)"

@@ -1,9 +1,9 @@
 <template>
-  <div class="container-hoo">
+  <div class="admin-box">
     <SubHeadline headline="Messages" />
     <div class="create-hotel-container">
       <div
-        class="message-container"
+        class="messages-container"
         v-for="message in messages"
         :key="message.id"
         @click="messagePage(message)"
@@ -49,17 +49,17 @@ export default {
 .create-hotel-container {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1000px;
+  max-width: 1200px;
   justify-content: space-around;
   margin: 0 auto;
 }
 
-.message-container {
+.messages-container {
   background: white;
-  width: 400px;
+  width: 500px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+
   height: fit-content;
   margin: 1rem;
   position: relative;

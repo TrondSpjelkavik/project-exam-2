@@ -1,7 +1,7 @@
 <template>
-  <div class="container-hoo">
+  <div class="create-hotel-container">
     <SubHeadline headline="Update a Hotel" />
-    <div class="container-foo">
+    <div class="update-container">
       <div
         :key="hotel.id"
         v-for="hotel in hotels"
@@ -97,7 +97,7 @@ h2 {
   font-weight: 700;
 }
 
-.container-foo {
+.update-container {
   display: flex;
 
   max-width: 1000px;
@@ -107,7 +107,7 @@ h2 {
   margin: 0 auto;
 }
 
-.container-hoo {
+.admin-box {
   min-height: 100vh;
   background: #f2f2f2;
   width: 100%;

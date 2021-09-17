@@ -299,12 +299,7 @@ export default {
   background: var(--brand-grey);
 }
 
-.create-hotel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
+
 
 .theme--light.v-application {
   background: transparent !important;
