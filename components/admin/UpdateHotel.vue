@@ -117,9 +117,14 @@
             ></v-textarea>
 
             <v-card-actions>
+              <v-card-actions>
+              <div class="form-actions">
               <v-btn type="submit" class=" mt-2 primary">
                 Submit
               </v-btn>
+               <v-checkbox class="feature-check" v-model="featured" label="Featured"></v-checkbox>
+               </div>
+            </v-card-actions>
             </v-card-actions>
           </v-form>
         </v-card-text>
@@ -157,6 +162,10 @@ export default {
     img_url: { required, url }
   },
 
+  created() {
+    console.log(this.hotels)
+  },
+
   data() {
     return {
       loading: false,
@@ -168,6 +177,7 @@ export default {
         mdiArrowLeft,
         mdiDelete
       },
+      featured: this.hotels.isFeatured,
       address: this.hotels.address,
       name: this.hotels.name,
       pitch: this.hotels.pitch,
@@ -351,5 +361,15 @@ export default {
   justify-content: center;
   align-content: center;
   flex-direction: column;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  
+  .v-input {
+    margin-left: 4rem;
+    
+  }
 }
 </style>

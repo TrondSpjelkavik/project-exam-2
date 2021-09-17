@@ -4,7 +4,6 @@
 
 - Make the site 100% responsive
 - Check and reset forms
-- Feature on create and update.
 - clean up container-hoo and create-hotel-container
 - clean up unused
 - Style enquire details and messages enquire
