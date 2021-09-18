@@ -10,7 +10,7 @@
             v-model="createActive"
             :class="{ active: createActive }"
           >
-            <v-icon class="admin-icon" size="36">
+            <v-icon class="admin-icon" size="28">
               {{ icons.mdiHomeCity }}
             </v-icon>
             <li>Create</li>
@@ -21,7 +21,7 @@
             v-model="messagesActive"
             :class="{ active: messagesActive }"
           >
-            <v-icon class="admin-icon" size="36">
+            <v-icon class="admin-icon" size="28">
               {{ icons.mdiAndroidMessages }}
             </v-icon>
             <li>Messages</li>
@@ -32,7 +32,7 @@
             v-model="enquiriesActive"
             :class="{ active: enquiriesActive }"
           >
-            <v-icon class="admin-icon" size="36">
+            <v-icon class="admin-icon" size="28">
               {{ icons.mdiForum }}
             </v-icon>
             <li>Enquiries</li>
@@ -43,7 +43,7 @@
             v-model="updateActive"
             :class="{ active: updateActive }"
           >
-            <v-icon class="admin-icon" size="36">
+            <v-icon class="admin-icon" size="28">
               {{ icons.mdiUpdate }}
             </v-icon>
             <li>Update</li>
@@ -129,12 +129,21 @@ export default {
   flex-direction: column;
   padding-top: 2rem;
   align-items: center;
+  @media (max-width: 680px) {
+    flex-direction: row;
+    height: 100px;
+    width: 100vw;
+    padding-top: 0rem;
+  }
 }
 
 .admin-headline {
   font-size: 20px;
   font-family: var(--font-headline);
   white-space: nowrap;
+  @media (max-width: 680px) {
+    display: none;
+  }
 }
 
 .admin-buttons {
@@ -142,8 +151,13 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   height: 500px;
+  @media (max-width: 680px) {
+    flex-direction: row;
+    height: 0;
+    width: 100vw;
+  }
 }
 
 li {

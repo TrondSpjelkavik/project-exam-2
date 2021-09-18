@@ -61,9 +61,12 @@ export default {
   middleware: "authenticated"
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .admin-container {
   display: flex;
   min-height: 100vh;
+  @media (max-width: 680px) {
+    display: block;
+  }
 }
 </style>

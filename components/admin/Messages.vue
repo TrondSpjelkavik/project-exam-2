@@ -45,13 +45,16 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style lang="scss" lang="scss">
 .create-hotel-container {
   display: flex;
   flex-wrap: wrap;
   max-width: 1200px;
   justify-content: space-around;
   margin: 0 auto;
+  @media (max-width) {
+    margin: 1rem;
+  }
 }
 
 .messages-container {
