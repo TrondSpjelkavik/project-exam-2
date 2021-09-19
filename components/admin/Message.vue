@@ -3,10 +3,10 @@
     <SubHeadline :headline="'From: ' + message.name" />
     <div class="create-hotel-container">
       <div class="message-container">
-         <v-icon @click="goBack" color="black" size="36" class="back-icon">
+        <v-icon @click="goBack" color="black" size="36" class="back-icon">
           {{ icons.mdiArrowLeft }}
         </v-icon>
-          <p class="message-date">{{ formatDate(message.created_at) }}</p>
+        <p class="message-date">{{ formatDate(message.created_at) }}</p>
         <p class="message-headline">Name:</p>
 
         <p class="message-content">{{ message.name }}</p>
@@ -15,7 +15,7 @@
         <p class="message-content">{{ message.email }}</p>
         <p class="message-headline">Message:</p>
         <p class="message-content">{{ message.message }}</p>
-      
+
         <div class="button-box">
           <a class="reply" :href="`mailto:${message.email}`">Reply</a>
           <button class="delete" @click="deleteMessage(message.id)">
@@ -39,11 +39,10 @@ export default {
 
   data() {
     return {
-       icons: {
-        mdiArrowLeft,
-      },
-    }
-     
+      icons: {
+        mdiArrowLeft
+      }
+    };
   },
 
   methods: {
@@ -68,7 +67,7 @@ export default {
       // Back function
 
       this.$nuxt.$router.push("/admin");
-    },
+    }
   },
   middleware: "authenticated"
 };
@@ -76,7 +75,7 @@ export default {
 <style lang="scss">
 .message-container {
   background: white;
-  width: 300px;
+  width: 350px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,10 +85,7 @@ export default {
   margin: 1rem;
   position: relative;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
 }
-
-
 
 .button-box {
   display: flex;
@@ -127,6 +123,5 @@ export default {
   padding-bottom: 20px;
   color: var(--brand-green);
   text-align: center;
- 
 }
 </style>

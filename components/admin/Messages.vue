@@ -9,8 +9,8 @@
         @click="messagePage(message)"
       >
         <div class="message-box">
-          <p class="message-headline">From:</p>
-          <p class="message-content">{{ message.name }}</p>
+          <p class="messages-headline">From:</p>
+          <p class="messages-content">{{ message.name }}</p>
         </div>
 
         <p class="message-date">{{ formatDate(message.created_at) }}</p>
@@ -52,9 +52,6 @@ export default {
   max-width: 1200px;
   justify-content: space-around;
   margin: 0 auto;
-  @media (max-width) {
-    margin: 1rem;
-  }
 }
 
 .messages-container {
@@ -71,13 +68,23 @@ export default {
   padding: 1rem;
 }
 
-.message-headline {
+.messages-headline {
   font-weight: 700;
+  padding-right: 10px;
+  @media (max-width: 450px) {
+    padding-right: 0px;
+  }
+}
+
+.messages-content {
   padding-right: 10px;
 }
 
 .message-box {
   display: flex;
+  @media (max-width: 450px) {
+    display: block;
+  }
 }
 
 .message-date {

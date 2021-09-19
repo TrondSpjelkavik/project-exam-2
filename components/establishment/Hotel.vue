@@ -31,7 +31,6 @@
                 <Modal :hotel="hotel" :closeModal="closeModal" />
               </div>
             </div>
-
             <button class="order-now" @click="openModal('modal_1')">
               Book Now
             </button>
@@ -93,6 +92,9 @@ export default {
 
 .image-container {
   padding-right: 25px;
+  @media (max-width: 800px) {
+    padding: 0;
+  }
 }
 
 .content-container {
@@ -108,6 +110,22 @@ export default {
   border-radius: 20px;
   position: relative;
   overflow: hidden;
+  @media (max-width: 800px) {
+    height: fit-content;
+    width: 350px;
+  }
+  @media (max-width: 400px) {
+    width: 320px;
+  }
+}
+
+.header-box {
+  @media (max-width: 800px) {
+    padding: 5px 0 0 5px;
+  }
+  @media (max-width: 400px) {
+    margin: 0 auto;
+  }
 }
 
 .price {
@@ -124,12 +142,18 @@ export default {
   width: 150px;
   height: 50px;
   transform: rotate(45deg);
+  @media (max-width: 800px) {
+    z-index: 910;
+  }
 }
 
 .main-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 }
 
 .info-container {
@@ -138,10 +162,33 @@ export default {
   height: 300px;
   max-width: 450px;
   justify-content: space-between;
+  @media (max-width: 800px) {
+    margin-bottom: 1rem;
+    width: 350px;
+  }
+  @media (max-width: 400px) {
+    height: 350px;
+  }
+
+  h4 {
+    @media (max-width: 800px) {
+      padding-left: 5px;
+      margin-top: 10px;
+    }
+    @media (max-width: 400px) {
+      max-width: 320px;
+      padding-left: 20px;
+    }
+  }
 }
 
 .headline {
   display: flex;
+  h1 {
+    @media (max-width: 800px) {
+      font-size: 20px;
+    }
+  }
 }
 
 .order-now {
@@ -154,6 +201,17 @@ export default {
   font-size: 16px;
   height: 40px;
   cursor: pointer;
+  @media (max-width: 800px) {
+    width: 100%;
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  @media (max-width: 400px) {
+    width: 60%;
+    margin: 0 auto;
+  }
 }
 
 .modal {
@@ -181,5 +239,18 @@ export default {
   margin: 0 auto;
   outline: none;
   border-bottom: 5px solid var(--brand-blue);
+}
+
+.description {
+  p {
+    @media (max-width: 800px) {
+      padding-left: 5px;
+      margin: 1rem 0;
+    }
+    @media (max-width: 400px) {
+      max-width: 320px;
+      padding-left: 20px;
+    }
+  }
 }
 </style>

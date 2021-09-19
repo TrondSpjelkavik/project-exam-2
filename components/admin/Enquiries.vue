@@ -5,33 +5,32 @@
       <div>
         <h2>New enquirires</h2>
         <div
-          class="messages-container"
+          class="enquirie-container"
           v-for="(enquirie, index) in enquiriesRead"
           :key="index"
           @click="enquiriePage(enquirie)"
         >
-          <div class="box-foo">
-            <p class="message-headline">{{ enquirie.name }}</p>
+          <div class="message-box">
+            <p class="enquirie-headline">{{ enquirie.name }}</p>
             <p v-if="!enquirie.hasRead" class="new">New</p>
-
-            <p class="message-date">{{ formatDate(enquirie.created_at) }}</p>
           </div>
+          <p class="message-date">{{ formatDate(enquirie.created_at) }}</p>
         </div>
       </div>
       <div>
         <h2>Old enquirires</h2>
         <div
-          class="messages-container"
+          class="enquirie-container"
           v-for="enquirie in enquiriesNotRead"
           :key="enquirie.id"
           @click="enquiriePage(enquirie)"
         >
-          <div class="box-foo">
-            <p class="message-headline">{{ enquirie.name }}</p>
+          <div class="message-box">
+            <p class="enquirie-headline">{{ enquirie.name }}</p>
 
             <p v-if="enquirie.hasRead" class="old">Old</p>
-            <p class="message-date">{{ formatDate(enquirie.created_at) }}</p>
           </div>
+          <p class="message-date">{{ formatDate(enquirie.created_at) }}</p>
         </div>
       </div>
     </div>
@@ -73,27 +72,40 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.box-foo {
-  display: flex;
-  width: 400px;
-  justify-content: space-between;
-}
-
 .enquirie-container {
+  background: white;
+  width: 500px;
   display: flex;
-  width: 1200px;
-  justify-content: space-around;
-  margin: 0 auto;
-  flex-wrap: wrap;
+  justify-content: space-between;
+
+  height: fit-content;
+  margin: 1rem;
+  position: relative;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  padding: 1rem;
+  @media (max-width: 520px) {
+    width: 100%;
+  }
+  @media (max-width: 450px) {
+    width: 320px;
+  }
 }
 
 .old {
   color: var(--brand-red);
   font-weight: 700;
+  margin-left: 5px;
 }
 
 .new {
   color: green;
   font-weight: 700;
+  margin-left: 5px;
+}
+
+.enquirie-headline {
+  font-weight: 700;
+  padding-left: 5px;
 }
 </style>

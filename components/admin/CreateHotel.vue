@@ -3,7 +3,6 @@
     <!-- Vuetify with custom class and elements -->
     <v-app>
       <v-card
-        width="500"
         class="mx-auto my-auto"
         style="position: relative; max-width: 400px"
       >
@@ -105,9 +104,16 @@
             ></v-textarea>
 
             <v-card-actions>
-              <v-btn type="submit" class=" mt-2 primary">
-                Submit
-              </v-btn>
+              <div class="form-actions">
+                <v-btn type="submit" class=" mt-2 primary">
+                  Submit
+                </v-btn>
+                <v-checkbox
+                  class="feature-check"
+                  v-model="form.featured"
+                  label="Featured"
+                ></v-checkbox>
+              </div>
             </v-card-actions>
           </v-form>
         </v-card-text>
@@ -159,6 +165,7 @@ export default {
         img_url: "",
         stars: 0,
         price: "",
+        featured: false,
         wifi: false,
         parking: false,
         gym: false,
@@ -252,7 +259,7 @@ export default {
       } finally {
         this.loading = false;
 
-        // Checking if there is no error -> sucess message and reset form validations
+        // Checking if there is no error -> sucess message and reset form
         if (!this.error) {
           this.success = true;
           this.form.name = "";
@@ -262,7 +269,7 @@ export default {
           this.form.img_url = "";
           this.form.stars = 0;
           this.form.price = "";
-          this.form.wifi = false;
+          (this.form.featured = false), (this.form.wifi = false);
           this.form.parking = false;
           this.form.gym = false;
           this.form.smoking = false;
@@ -314,5 +321,13 @@ export default {
 
 .accomodation-type {
   padding: 1rem 0;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: space-between;
+  width: 80%;
 }
 </style>

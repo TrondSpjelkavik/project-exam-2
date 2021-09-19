@@ -1,14 +1,15 @@
 <template>
   <div>
     <nav>
-      <nuxt-img
-        src="/holidaze-logo.svg"
-        class="logo"
-        format="svg"
-        height="45"
-        widht="80"
-      />
-
+      <NuxtLink to="/">
+        <nuxt-img
+          src="/holidaze-logo.svg"
+          class="logo"
+          format="svg"
+          height="45"
+          widht="80"
+        />
+      </NuxtLink>
       <ul :class="{ toggle: toggleNav }">
         <div class="nav-controller">
           <li @click="closeNav">
@@ -92,6 +93,7 @@ nav {
   .logo {
     position: absolute;
     left: 0;
+    top: 16px;
     margin-left: 10px;
     z-index: 11;
   }

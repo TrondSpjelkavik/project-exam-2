@@ -1,37 +1,35 @@
 <template lang="">
- <div class="admin-box">
+  <div class="admin-box">
     <SubHeadline :headline="enquirie.name" />
     <div class="create-hotel-container">
       <div class="message-container">
-         <v-icon @click="goBack" color="black" size="36" class="back-icon">
+        <v-icon @click="goBack" color="black" size="36" class="back-icon">
           {{ icons.mdiArrowLeft }}
         </v-icon>
-          <p class="message-date">{{ formatDate(enquirie.created_at) }}</p>
+        <p class="message-date">{{ formatDate(enquirie.created_at) }}</p>
         <p class="message-headline">Name:</p>
 
         <p class="message-content">{{ enquirie.name }}</p>
 
         <p class="message-headline">Email:</p>
         <p class="message-content">{{ enquirie.email }}</p>
-          <p class="message-headline">Arrival:</p>
+        <p class="message-headline">Arrival:</p>
         <p class="message-content">{{ enquirie.arrival }}</p>
-            <p class="message-headline">Depature:</p>
+        <p class="message-headline">Depature:</p>
         <p class="message-content">{{ enquirie.depature }}</p>
-            <p class="message-headline">Message:</p>
+        <p class="message-headline">Message:</p>
         <p class="message-content">{{ enquirie.enquirie }}</p>
-     
-      
+
         <div class="button-box">
-           <v-checkbox
-        @click="toggleText(enquirie.id)"
-        v-model="hasRead"
-        :label="`${text}`"
-      ></v-checkbox>
+          <v-checkbox
+            @click="toggleText(enquirie.id)"
+            v-model="hasRead"
+            :label="`${text}`"
+          ></v-checkbox>
         </div>
       </div>
     </div>
   </div>
- 
 </template>
 <script>
 import moment from "moment";
@@ -46,9 +44,9 @@ export default {
     return {
       hasRead: false,
       text: "Mark as read",
-       icons: {
-        mdiArrowLeft,
-      },
+      icons: {
+        mdiArrowLeft
+      }
     };
   },
   methods: {
@@ -63,15 +61,15 @@ export default {
         console.log(error);
       }
     },
-     // Moment pkg. Date formatter
+    // Moment pkg. Date formatter
     formatDate(date) {
       return moment(date).format("MMMM Do YYYY, h:mm:ss a");
     },
-      goBack() {
+    goBack() {
       // Back function
 
       this.$nuxt.$router.push("/admin");
-    },
+    }
   },
   created() {
     // This.hasRead updated on created
@@ -92,10 +90,7 @@ export default {
   margin: 1rem;
   position: relative;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
 }
-
-
 
 .button-box {
   padding-left: 20px;
@@ -130,9 +125,5 @@ export default {
   padding-bottom: 20px;
   color: var(--brand-green);
   text-align: center;
- 
 }
-
-
-
 </style>

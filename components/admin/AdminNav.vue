@@ -166,6 +166,9 @@ li {
   color: black;
   justify-content: center;
   align-items: center;
+  @media (max-width: 400px) {
+    font-size: 14px;
+  }
 }
 
 .active {

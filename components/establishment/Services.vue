@@ -49,6 +49,9 @@ export default {
   justify-content: space-around;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  @media (max-width: 800px) {
+    position: relative;
+  }
 }
 
 .services-icon {
@@ -61,6 +64,9 @@ export default {
   p {
     padding-left: 10px;
     font-size: 16px;
+    @media (max-width: 800px) {
+      display: none;
+    }
   }
 }
 </style>
