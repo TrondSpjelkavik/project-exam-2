@@ -23,6 +23,14 @@ export default {
   color: var(--brand-white);
   top: 50%;
   transform: translateY(-50%);
+  @media (max-height: 800px) {
+     top: 40%;
+  transform: translateY(-40%);
+  }
+   @media (max-height: 700px) {
+     top: 30%;
+  transform: translateY(-30%);
+  }
 }
 
 h2 {
