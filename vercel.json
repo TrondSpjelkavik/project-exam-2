@@ -7,11 +7,11 @@
     }
   ],
   "env": {
-    "STRAPI_URL": true
+    "STRAPI_URL": "https://young-gorge-89900.herokuapp.com/"
   },
   "build": {
     "env": {
-      "STRAPI_URL": true
+      "STRAPI_URL": "https://young-gorge-89900.herokuapp.com/"
     }
   }
 }
