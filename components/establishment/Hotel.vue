@@ -168,6 +168,7 @@ export default {
   }
   @media (max-width: 400px) {
     height: 350px;
+      width: 320px;
   }
 
   h4 {
@@ -177,7 +178,7 @@ export default {
     }
     @media (max-width: 400px) {
       max-width: 320px;
-      padding-left: 20px;
+      
     }
   }
 }
@@ -203,10 +204,10 @@ export default {
   cursor: pointer;
   @media (max-width: 800px) {
     width: 100%;
-
     align-items: center;
     display: flex;
     justify-content: center;
+    padding: 0.3rem 0;
   }
   @media (max-width: 400px) {
     width: 60%;
@@ -249,7 +250,7 @@ export default {
     }
     @media (max-width: 400px) {
       max-width: 320px;
-      padding-left: 20px;
+     
     }
   }
 }

@@ -35,7 +35,7 @@ export default {
         info:
           "We offer great prices on our hotels deals. If you have any questions about our prices or hotel deals. Send the hotel an enquiry, and we will help you find the best deals",
         name: "Hotels",
-        src: "/hotels"
+        src: "/accommodations"
       },
       {
         id: 3,
@@ -44,7 +44,7 @@ export default {
         info:
           "Our award winning hotels is the best Bergen has to offer. Choose between hotels at the coast, in the center of the city, spa hotels or our famous Linden hotel that guarantees rain",
         name: "Find a hotel",
-        src: "/hotels"
+        src: "/accommodations"
       }
     ];
   }
