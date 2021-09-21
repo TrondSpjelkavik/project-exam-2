@@ -32,7 +32,7 @@
               </div>
             </div>
             <button class="order-now" @click="openModal('modal_1')">
-              Book Now
+              Book now
             </button>
           </div>
         </div>

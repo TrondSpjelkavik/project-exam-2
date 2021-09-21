@@ -3,9 +3,7 @@
 ## TO DO:
 
 - Make the site 100% responsive
-  - 320px Mobile responsive hotel details
-  - Search container
-  -
+  - Design 404 page
 
 # Cuz reason
 

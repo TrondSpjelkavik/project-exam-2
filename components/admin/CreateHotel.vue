@@ -37,14 +37,14 @@
             />
             <v-text-field
               label="Pitch"
-              prepend-icon="mdi-account"
+              prepend-icon="mdi-format-quote-close"
               :error-messages="pitchErrors"
               v-model="form.pitch"
               @input="$v.form.pitch.$touch()"
             />
             <v-text-field
               label="Image"
-              prepend-icon="mdi-account"
+              prepend-icon="mdi-image"
               :error-messages="imageErrors"
               v-model="form.img_url"
               @input="$v.form.img_url.$touch()"
@@ -54,7 +54,7 @@
               <v-text-field
                 label="Stars"
                 type="number"
-                prepend-icon="mdi-account"
+                prepend-icon="mdi-star-circle"
                 :error-messages="starsErrors"
                 v-model="form.stars"
                 @input="$v.form.stars.$touch()"
@@ -62,7 +62,7 @@
               <v-text-field
                 label="Price"
                 type="number"
-                prepend-icon="mdi-account"
+                prepend-icon="mdi-currency-usd"
                 :error-messages="priceErrors"
                 v-model="form.price"
                 @input="$v.form.price.$touch()"
