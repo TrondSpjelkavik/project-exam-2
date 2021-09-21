@@ -3,8 +3,7 @@
 ## TO DO:
 
 - Make the site 100% responsive
-  - Icons in form
-  - Hover book now (and change Now -> now)
+  - Design 404 page
 
 # Cuz reason
 
