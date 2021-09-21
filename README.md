@@ -3,9 +3,8 @@
 ## TO DO:
 
 - Make the site 100% responsive
-  - 320px Mobile responsive hotel details
-  - Search container
-  -
+  - Icons in form
+  - Hover book now (and change Now -> now)
 
 # Cuz reason
 
