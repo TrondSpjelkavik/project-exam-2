@@ -4,6 +4,11 @@
 
 - Make the site 100% responsive
   - Design 404 page
+  - Hover over search results
+  - capital H on our Housing
+  - hover book now
+  - Add more hotels to API
+  - enquiries max-width
 
 # Cuz reason
 
