@@ -10,10 +10,16 @@ export default {
   components: {
     Message
   },
+  head() {
+    return {
+      title: this.message.name
+    };
+  },
 
   async asyncData({ $strapi, route }) {
     const id = route.params.id;
     const message = await $strapi.$messages.findOne(id);
+
     return {
       message
     };

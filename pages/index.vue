@@ -25,6 +25,13 @@ export default {
     Accommodations,
     Questions
   },
+
+  head() {
+    return {
+      title: "Welcome to Holidaze"
+    };
+  },
+
   async asyncData({ $strapi }) {
     const hotels = await $strapi.$hotels.find();
     const video = await fetch(
@@ -102,6 +109,4 @@ ul {
   position: relative;
   overflow: hidden;
 }
-
-
 </style>

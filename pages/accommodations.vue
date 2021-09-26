@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Headline headline="Our Housing" />
+    <Headline headline="Our housing" />
     <HousingNav :content.sync="comp" />
     <Accommodations
       :hotels="hotels"
@@ -36,6 +36,11 @@ export default {
   data() {
     return {
       comp: "All"
+    };
+  },
+  head() {
+    return {
+      title: "Our housing"
     };
   },
   async asyncData({ $strapi }) {

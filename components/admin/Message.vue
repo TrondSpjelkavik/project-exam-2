@@ -97,6 +97,7 @@ export default {
 
 .message-content {
   padding: 5px 20px;
+  word-break: break-all;
 }
 
 .message-headline {

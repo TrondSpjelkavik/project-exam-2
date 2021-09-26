@@ -168,7 +168,7 @@ export default {
   }
   @media (max-width: 400px) {
     height: 350px;
-      width: 320px;
+    width: 320px;
   }
 
   h4 {
@@ -178,7 +178,6 @@ export default {
     }
     @media (max-width: 400px) {
       max-width: 320px;
-      
     }
   }
 }
@@ -202,6 +201,9 @@ export default {
   font-size: 16px;
   height: 40px;
   cursor: pointer;
+  &:hover {
+    background: var(--brand-orange);
+  }
   @media (max-width: 800px) {
     width: 100%;
     align-items: center;
@@ -250,7 +252,6 @@ export default {
     }
     @media (max-width: 400px) {
       max-width: 320px;
-     
     }
   }
 }

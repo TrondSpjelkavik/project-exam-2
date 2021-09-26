@@ -11,6 +11,12 @@ export default {
     UpdateHotel
   },
 
+  head() {
+    return {
+      title: this.hotels.name
+    };
+  },
+
   async asyncData({ $strapi, route }) {
     const id = route.params.id;
     const hotels = await $strapi.$hotels.findOne(id);

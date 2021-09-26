@@ -10,6 +10,11 @@ export default {
   components: {
     Hotel
   },
+  head() {
+    return {
+      title: this.hotel.name
+    };
+  },
 
   async asyncData({ $strapi, route }) {
     const id = route.params.id;

@@ -98,6 +98,10 @@ ul {
     color: black;
     cursor: pointer;
     padding-left: 5px;
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--brand-green);
+    }
   }
   @media (max-width: 800px) {
     width: 201px;

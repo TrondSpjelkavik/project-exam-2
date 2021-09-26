@@ -10,10 +10,16 @@ export default {
   components: {
     Enquirie
   },
+  head() {
+    return {
+      title: this.enquirie.name
+    };
+  },
 
   async asyncData({ $strapi, route }) {
     const id = route.params.id;
     const enquirie = await $strapi.$enquiries.findOne(id);
+
     return {
       enquirie
     };

@@ -15,7 +15,6 @@
     <UpdateHotels
       :hotels="hotels"
       :updatePage="updatePage"
-      :content.sync="comp"
       v-if="comp === 'UpdateHotels'"
     />
   </div>
@@ -38,6 +37,11 @@ export default {
   data() {
     return {
       comp: "CreateHotel"
+    };
+  },
+  head() {
+    return {
+      title: "Admin panel"
     };
   },
 

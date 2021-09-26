@@ -24,10 +24,10 @@
             Submitting...
           </div>
           <div class="success-form" v-if="success">
-            Hotel updated.
+            Establishment updated.
           </div>
           <div class="success-form" v-if="deleted">
-            Hotel deleted. Redirecting...
+            Establishment deleted. Redirecting...
           </div>
         </v-card-title>
 
@@ -118,13 +118,17 @@
 
             <v-card-actions>
               <v-card-actions>
-              <div class="form-actions">
-              <v-btn type="submit" class=" mt-2 primary">
-                Submit
-              </v-btn>
-               <v-checkbox class="feature-check" v-model="featured" label="Featured"></v-checkbox>
-               </div>
-            </v-card-actions>
+                <div class="form-actions">
+                  <v-btn type="submit" class=" mt-2 primary">
+                    Submit
+                  </v-btn>
+                  <v-checkbox
+                    class="feature-check"
+                    v-model="featured"
+                    label="Featured"
+                  ></v-checkbox>
+                </div>
+              </v-card-actions>
             </v-card-actions>
           </v-form>
         </v-card-text>
@@ -163,7 +167,7 @@ export default {
   },
 
   created() {
-    console.log(this.hotels)
+    console.log(this.hotels);
   },
 
   data() {
@@ -335,7 +339,6 @@ export default {
   background: var(--brand-grey);
 }
 
-
 .theme--light.v-application {
   background: transparent !important;
 }
@@ -361,10 +364,9 @@ export default {
 .form-actions {
   display: flex;
   align-items: center;
-  
+
   .v-input {
     margin-left: 4rem;
-    
   }
 }
 </style>

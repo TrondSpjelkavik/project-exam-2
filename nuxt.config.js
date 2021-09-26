@@ -1,14 +1,25 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "project-exam",
+    title: "Holidaze",
     htmlAttrs: {
       lang: "en"
     },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" }
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Find accommodations and unique tavel experience when you book on holidaze. Search, book and explore"
+      },
+      {
+        hid: "keywords",
+        name: "keywords",
+        content:
+          "book, hotels, guesthouses, bed and breakfast, bergen, travel, offers, cheap, explore, norway, nature"
+      }
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -18,12 +29,6 @@ export default {
           "https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap"
       }
     ]
-  },
-
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["~/assets/main.scss"],
-  styleResources: {
-    scss: ["~/assets/variables.scss"]
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

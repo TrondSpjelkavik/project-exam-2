@@ -9,6 +9,11 @@ import Signup from "../components/signup/Signup.vue";
 export default {
   components: {
     Signup
+  },
+  head() {
+    return {
+      title: "Sign up"
+    };
   }
 };
 </script>

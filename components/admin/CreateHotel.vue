@@ -8,12 +8,12 @@
       >
         <v-card-title>
           <div class="success-container">
-            <h1 class="display-1  mx-auto  ">Create a hotel</h1>
+            <h1 class="display-1  mx-auto  ">Create a housing</h1>
             <div class="success-form mx-auto" v-if="loading">
               Submitting...
             </div>
             <div class="success-form mx-auto" v-if="success">
-              Hotel created.
+              Establishment created.
             </div>
           </div>
         </v-card-title>

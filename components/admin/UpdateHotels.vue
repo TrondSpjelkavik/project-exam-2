@@ -1,6 +1,6 @@
 <template>
   <div class="create-hotel-container">
-    <SubHeadline headline="Update a Hotel" />
+    <SubHeadline headline="Update housing" />
     <div class="update-container">
       <div
         :key="hotel.id"

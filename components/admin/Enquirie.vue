@@ -26,6 +26,7 @@
             v-model="hasRead"
             :label="`${text}`"
           ></v-checkbox>
+          <a class="reply" :href="`mailto:${enquirie.email}`">Reply</a>
         </div>
       </div>
     </div>
@@ -93,11 +94,16 @@ export default {
 }
 
 .button-box {
-  padding-left: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
 }
 
 .message-content {
   padding: 5px 20px;
+  word-break: break-all;
 }
 
 .message-headline {

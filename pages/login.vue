@@ -8,6 +8,11 @@ import Login from "../components/login/Login.vue";
 export default {
   components: {
     Login
+  },
+  head() {
+    return {
+      title: "Login"
+    };
   }
 };
 </script>
